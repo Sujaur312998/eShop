@@ -14,7 +14,7 @@ router.post('/signin', validationRequestSignin, isRequestValidated, signin)
 
 router.post('/signup', validationRequestSignup, isRequestValidated, signup)
 
-router.post('/profile', verifyUser, (req, res) => {
+router.post('/profile',verifyUser, (req, res) => {
     res.status(200).json({ message: 'profile' })
 })
 

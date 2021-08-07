@@ -29,10 +29,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    gender:{
+    gender: {
         type: String,
         required: true,
-        enum:["None of them","male","female"],
+        enum: ["None of them", "male", "female"],
     },
     role: {
         type: String,
@@ -82,7 +82,7 @@ userSchema.methods = {
     },
     generateToken: async function (fullName, email, role) {
         //console.log(fullName, email, role)
-        const token = jwt.sign({ _id: this._id }, key, { expiresIn: "1h" })
+        const token = jwt.sign({ _id: this._id, role: this.role }, key, { expiresIn: "1d" })
 
         this.tokens = this.tokens.concat({
             token: token,
