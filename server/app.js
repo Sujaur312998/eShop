@@ -10,6 +10,7 @@ dotenv.config({path:"./.env"})
 const router = require('./src/routes/auth')
 const adminrouter = require('./src/routes/admin/auth')
 const categoryRouter= require("./src/routes/category")
+const productRouter= require("./src/routes/product")
 
 const port=process.env.PORT
 
@@ -22,6 +23,7 @@ app.use(compression())
 app.use('/api',router)
 app.use('/api',adminrouter)
 app.use('/api',categoryRouter)
+app.use('/api',productRouter)
 
 
 
