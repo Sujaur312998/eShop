@@ -1,12 +1,28 @@
 const express = require('express')
 const router = express.Router()
-
+const multer = require('multer')
+const shortid = require('shortid')
+const path = require('path')
 
 const { addCategory, getCategory } = require('../controlers/admin/adminCategoryControler')
 const { verifyUser, adminMiddleware } = require('../middlewar/commonMiddleware')
 
 
-router.post('/category/create', verifyUser, adminMiddleware, addCategory)
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.join(path.dirname(__dirname), 'uploads'))
+    },
+    filename: function (req, file, cb) {
+        cb(null, shortid.generate() + '_' + file.originalname)
+    }
+})
+
+const upload = multer({ storage: storage })
+
+
+
+router.post('/category/create', verifyUser, adminMiddleware, upload.single('categoryImg'), addCategory)
 router.get('/category/getCategory', getCategory)
 
 

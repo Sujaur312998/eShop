@@ -1,5 +1,4 @@
 const express = require('express')
-const { connections } = require('mongoose')
 const router = express.Router()
 const multer = require('multer')
 const shortid = require('shortid')
