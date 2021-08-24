@@ -83,7 +83,7 @@ userSchema.methods = {
     generateToken: async function (fullName, email, role) {
         //console.log(fullName, email, role)
         const token = jwt.sign({ _id: this._id, role: this.role }, key, { expiresIn: "1d" })
-
+        //console.log(token);
         this.tokens = this.tokens.concat({
             token: token,
             user: {
@@ -94,7 +94,7 @@ userSchema.methods = {
         })
         //console.log(this.tokens);
         await this.save()
-        return this.tokens
+        return token
     }
 }
 

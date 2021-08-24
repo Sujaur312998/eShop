@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Navbar/header'
 import { Switch, Route } from 'react-router-dom'
 import Home from './Body/home'
-import Signin from './Body/signin'
+import Signin from './Body/signin/signin'
 import Signup from './Body/signup'
 
 

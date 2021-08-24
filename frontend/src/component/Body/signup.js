@@ -42,7 +42,7 @@ const Signup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(gender, user)
+        console.log(gender.selectedOption.value, user)
         setGender('')
         setUser({
             fullName: '',
@@ -81,7 +81,8 @@ const Signup = () => {
                                     <Select
                                         value={selectedOption}
                                         onChange={handleChange}
-                                        options={options} />
+                                        options={options} 
+                                    />
 
                                 </Col>
                             </Row>
