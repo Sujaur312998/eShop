@@ -17,8 +17,8 @@ const Header = () => {
     }
     return (
         <div>
-            <nav className="navbar navbar-expand-md navbar-light " style={{ backgroundColor: "#3A8F7C" }}>
-                <div className="container">
+            <nav className="navbar navbar-expand-md bg-dark navbar-dark " >
+                <div className="container-fluid">
                     <NavLink className="navbar-brand" to="/">
                         <strong>Admin Dashboard</strong>
                     </NavLink>
@@ -34,7 +34,7 @@ const Header = () => {
                                         <nav className="nav-link" style={{ cursor: "pointer" }} onClick={logout}>SignOut</nav>
                                     </li>
                                     :
-                                    <div>
+                                    <>
                                         <li className="nav-item">
                                             <NavLink className="nav-link" to="/signin">Signin</NavLink>
                                         </li>
@@ -42,7 +42,7 @@ const Header = () => {
                                         <li className="nav-item">
                                             <NavLink className="nav-link" to="/signup">Registration</NavLink>
                                         </li>
-                                    </div>
+                                    </>
                             }
                         </ul>
                     </div>

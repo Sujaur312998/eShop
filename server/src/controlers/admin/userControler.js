@@ -56,3 +56,6 @@ exports.signin = async (req, res) => {
     }
 }
 
+exports.signout=(req,res)=>{
+    
+}
