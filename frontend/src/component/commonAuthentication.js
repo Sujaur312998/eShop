@@ -9,7 +9,12 @@ export const isUserAuthenticated = async (token) => {
                 "Authorization": `Bearer ${token}`
             }
         })
-        return res
+        if(res.status ===200){
+            return res.status
+        }else{
+            return null
+        }
+        
     } catch (e) {
         console.log(e)
     }

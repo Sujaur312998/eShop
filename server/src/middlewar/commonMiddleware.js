@@ -6,14 +6,17 @@ exports.verifyUser = async (req, res, next) => {
         if (req.headers.authorization) {
             const token = req.headers.authorization.split(" ")[1];
             const user = jwt.verify(token, process.env.SECRECT_KEY)
-            req.user = user
+            if(user){
+                req.user = user
+                return res.status(200).json({ message: "Authorization Successfull" })
+            }
 
         } else {
             return res.status(500).json({ message: "Authorization required" })
         }
         next()
     } catch (e) {
-        console.log(e)
+        return res.status(500).json(e)
     }
 }
 

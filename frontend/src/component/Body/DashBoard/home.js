@@ -3,21 +3,22 @@ import { isUserLogined, userAuthenticate } from '../../../redux/auth/authAction'
 import { useDispatch } from 'react-redux'
 import Sidebar from './sidebar'
 import { isUserAuthenticated } from '../../commonAuthentication'
-
+import {useHistory} from 'react-router-dom'
 
 const Home = () => {
     const dispatch = useDispatch()
-    //const history = useHistory()
+    const history = useHistory()
 
     useEffect(async () => {
         dispatch(isUserLogined())
         const token = window.store.getState().authReducer.token
         const res = await isUserAuthenticated(token)
         try {
-            if (res.status === 200) {
+            if (res=== 200) {
                 dispatch(userAuthenticate(true))
             } else {
                 dispatch(userAuthenticate(false))
+                history.push('/signin')
             }
         } catch (e) {
             console.log(e)
