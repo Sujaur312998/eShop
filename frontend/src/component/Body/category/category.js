@@ -5,10 +5,10 @@ import { isUserAuthenticated } from '../../commonAuth/commonAuthentication'
 import { isUserLogined, userAuthenticate } from '../../../redux/auth/authAction'
 import {useHistory} from 'react-router-dom'
 
-const Products = () => {
+const Category = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-
+    
     useEffect( () => {
         async function fetchData(){
             dispatch(isUserLogined())
@@ -28,7 +28,6 @@ const Products = () => {
         fetchData()
     }, [dispatch,history])
 
-
     return (
         <div className="container-fluid">
             <div className="row">
@@ -36,7 +35,7 @@ const Products = () => {
 
                 <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 className="h2">Products</h1>
+                        <h1 className="h2">Category</h1>
 
                     </div>
                 </main>
@@ -46,4 +45,5 @@ const Products = () => {
     )
 }
 
-export default Products
+export default Category
+

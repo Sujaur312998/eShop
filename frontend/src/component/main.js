@@ -8,6 +8,7 @@ import PrivateRouter from '../HOC/PrivateRouter'
 import Orders from './Body/Order/order'
 import Products from './Body/Products/products'
 import Customers from './Body/Customers/customers'
+import Category from './Body/category/category';
 
 const Main = () => {
     return (
@@ -19,6 +20,7 @@ const Main = () => {
                 <PrivateRouter path='/products' exact component={Products} />
                 <PrivateRouter path='/orders' exact component={Orders} />
                 <PrivateRouter path='/customers' exact component={Customers} />
+                <PrivateRouter path='/category' exact component={Category} />
 
                 <Route path='/signin' exact component={Signin} />
                 <Route path='/signup' exact component={Signup} />

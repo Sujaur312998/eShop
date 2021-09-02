@@ -10,11 +10,6 @@ const Signup = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    useEffect(() => {
-        dispatch(isUserLogined())
-        isUserAuthenticated(window.store.getState().authReducer.token)
-    }, [])
-
     const isUserAuthenticated = async (token) => {
         if (token != null) {
             try {
@@ -37,6 +32,12 @@ const Signup = () => {
             }
         }
     }
+
+    useEffect(() => {
+        dispatch(isUserLogined())
+        isUserAuthenticated(window.store.getState().authReducer.token)
+    }, [dispatch])
+
     const options = [
         {
             label: "Male",

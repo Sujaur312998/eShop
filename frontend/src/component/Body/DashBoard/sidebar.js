@@ -20,6 +20,12 @@ const Sidebar = () => {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
+                                <NavLink className="nav-link" to="/category">
+                                    <span data-feather="shopping-cart"></span>
+                                    Category
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/products">
                                     <span data-feather="shopping-cart"></span>
                                     Products

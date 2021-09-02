@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import Sidebar from '../DashBoard/sidebar'
-import { isUserAuthenticated } from '../../commonAuthentication'
+import { isUserAuthenticated } from '../../commonAuth/commonAuthentication'
 import { isUserLogined, userAuthenticate } from '../../../redux/auth/authAction'
 import {useHistory} from 'react-router-dom'
 
@@ -9,21 +9,24 @@ const Customers = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     
-    useEffect(async () => {
-        dispatch(isUserLogined())
-        const token = window.store.getState().authReducer.token
-        const res = await isUserAuthenticated(token)
-        try {
-            if (res=== 200) {
-                dispatch(userAuthenticate(true))
-            } else {
-                dispatch(userAuthenticate(false))
-                history.push('/signin')
+    useEffect( () => {
+        async function fetchData(){
+            dispatch(isUserLogined())
+            const token = window.store.getState().authReducer.token
+            const res = await isUserAuthenticated(token)
+            try {
+                if (res=== 200) {
+                    dispatch(userAuthenticate(true))
+                } else {
+                    dispatch(userAuthenticate(false))
+                    history.push('/signin')
+                }
+            } catch (e) {
+                console.log(e)
             }
-        } catch (e) {
-            console.log(e)
         }
-    }, [])
+        fetchData()
+    }, [dispatch,history])
 
     return (
         <div className="container-fluid">

@@ -1,4 +1,4 @@
-import { host } from '../constants/hostConst'
+import { host } from '../../constants/hostConst'
 
 export const isUserAuthenticated = async (token) => {
     try {
