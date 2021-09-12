@@ -22,7 +22,7 @@ const Signin = () => {
     const isUserAuthenticated = async (token) => {
         if (token != null) {
             try {
-                const res = await fetch(`${host}/api/profile`, {
+                const res = await fetch(`${host}/profile`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const Signin = () => {
             if (email === '' || password === "") {
                 window.alert('Please fill up the login form!!!')
             } else {
-                const res = await fetch(`${host}/api/admin/signin`, {
+                const res = await fetch(`${host}/admin/signin`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -73,7 +73,6 @@ const Signin = () => {
         } catch (e) {
             console.log(e)
         }
-        console.log(email, password)
         setEmail('')
         setPassword('')
     }

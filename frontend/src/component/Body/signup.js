@@ -13,7 +13,7 @@ const Signup = () => {
     const isUserAuthenticated = async (token) => {
         if (token != null) {
             try {
-                const res = await fetch(`${host}/api/profile`, {
+                const res = await fetch(`${host}/profile`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

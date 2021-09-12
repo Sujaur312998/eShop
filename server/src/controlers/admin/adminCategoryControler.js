@@ -58,7 +58,7 @@ exports.getCategory = (req, res) => {
 
                 const categoryList = createCategory(category)
 
-                return res.status(200).json({ categoryList })
+                return res.status(200).json({ categoryList,category })
             }
         })
 }

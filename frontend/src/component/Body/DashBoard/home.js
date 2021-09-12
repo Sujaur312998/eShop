@@ -9,6 +9,7 @@ const Home = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
+
     useEffect( () => {
         async function fetchData(){
             dispatch(isUserLogined())

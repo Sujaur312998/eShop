@@ -2,7 +2,7 @@ import { host } from '../../constants/hostConst'
 
 export const isUserAuthenticated = async (token) => {
     try {
-        const res = await fetch(`${host}/api/profile`, {
+        const res = await fetch(`${host}/profile`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
